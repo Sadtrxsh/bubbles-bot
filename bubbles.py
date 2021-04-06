@@ -2,6 +2,9 @@ import random
 import discord
 from discord.ext import commands, tasks
 
+TOKEN = "TOKEN HERE"
+bubbles_id = 1234567890 #PUT YOUR CHANNEL ID FOR BUBBLES HERE
+
 bot = discord.ext.commands.Bot(command_prefix = "!")
 @bot.event
 async def on_ready():
@@ -10,5 +13,5 @@ async def on_ready():
 @tasks.loop(seconds=100)
 async def send_message():
     size = random.randint(6,14)
-    await bot.get_channel(828838318006468649).send("\n".join(["||pop||" * size] * size))
-bot.run('bot token here')
+    await bot.get_channel(bubbles_id).send("\n".join(["||pop||" * size] * size))
+bot.run(TOKEN)
